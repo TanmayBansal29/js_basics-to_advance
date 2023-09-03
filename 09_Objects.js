@@ -44,5 +44,80 @@ console.log(JsUser.greeting);  // This will give a function return back --> Func
 console.log(JsUser.greeting());  // Passed like a function then it prints the text --> Hell0 Js User
 console.log(JsUser.greetingTwo());
 
+const tinderUser = new Object()   // Empty Object --> Singleton Object
+
+tinderUser.id = "123abc"
+tinderUser.name = "Sammy"
+tinderUser.isLooggedIn = false
+
+console.log(tinderUser);
+
+
+// Object Nesting 
+const regularUser = {
+    email: "some@gmail.com",
+    fullname : {
+        userFullName : {
+            firstName : "Hitesh",
+            lastName : "choudhary"
+        }
+    }
+}
+
+console.log(regularUser.fullname) // Complete fullname object is displayed with nesting. 
+console.log(regularUser.fullname.userFullName) // One level nesting is reduced in this case
+console.log(regularUser.fullname.userFullName.firstName) // This will specifically provide the first name of the user provided
+
+// Combining of two Objects
+const obj1 = {1: "a", 2: "b"}
+const obj2 = {3: "c", 4: "d"}
+
+const obj3 = {obj1,  obj2}  // This will give a problem. Obj3 will be created which will contains two key value pairs as --> obj1 and its values and obj 2 and its values
+console.log(obj3)
+
+const obj4 = Object.assign({}, obj1, obj2)  // A Optional Parameter --> curly braces (empty array) is provided 
+// the empty array will act as a target and reat will act a source which will reduce the chances of error --> Object.assign(target, source)
+// Otherwise like obj1 is target then all values are merged into obj1
+
+const obj5 = {...obj1, ...obj2}  // Combining the objects with the use of spread operator 
+
+// If we talk about the fetching data from database then it is fetched in the form of array of objects
+const users = [
+    {
+        id: 1,
+        email: "h@gmail.com"
+    }, 
+    {
+        id: 2,
+        email: "j@gmail.com"
+    }
+]
+
+console.log(tinderUser)
+console.log(Object.keys(tinderUser));  // It will provide all the keys of the object --> Interesting fact they are fetched in the form of Array
+console.log(Object.values(tinderUser)) // It provide all the values of the object
+console.log(Object.entries(tinderUser)) // It provides a array of array --> means all each key value pair is changed to array which are further stored in an array
+// First Property will be Key and next will be Value of Array
+
+console.log(tinderUser.hasOwnProperty('isloggedIn'))  // Provides a boolean result  whether this key is present in object or not
+
+const course = {
+    courseName : "JavaScript",
+    price : "999",
+    courseInstructor: "Hitesh"
+}
+
+// Destructuring the object
+const {courseInstructor: instructure} = course // Any value can be destructured like this Now directly value can be called using the new name without using . (dot) operator
+console.log(instructor);
+
+// JSON --> Both Key and Values are given as String
+// {
+//     "name": "Hitesh",
+//     "courseName" : "JS in Hindi",
+//     "price": "Free"
+// }
+
+// Sometimes APIs are fetched in the form of Array of Objects
 
 
